@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FilterNewsVer2</string>
+
+    <string name="news_title">News</string>
+    <string name="save_title">Save</string>
+    <string name="favourite_title">Favourite</string>
+</resources>
