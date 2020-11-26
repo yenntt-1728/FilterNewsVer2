@@ -9,6 +9,11 @@
             name="viewModel"
             type="com.example.filternewsver2.ui.fragment.news.NewsViewModel" />
 
+        <variable
+            name="adapter"
+            type="com.example.filternewsver2.ui.adapter.NewsAdapter&lt;com.example.filternewsver2.ui.model.News>" />
+
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/swipe_refresh"
@@ -21,6 +26,7 @@
             android:id="@+id/recycler_news"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:adapter="@{adapter}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

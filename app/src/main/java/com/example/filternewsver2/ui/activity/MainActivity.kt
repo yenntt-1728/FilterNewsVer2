@@ -11,7 +11,7 @@ import com.example.filternewsver2.ui.fragment.news.NewsFragment
 import com.example.filternewsver2.ui.fragment.save.SaveFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 
-class MainActivity : AppCompatActivity(), MainListener {
+class   MainActivity : AppCompatActivity(), MainListener {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var mainBinding : ActivityMainBinding
 
