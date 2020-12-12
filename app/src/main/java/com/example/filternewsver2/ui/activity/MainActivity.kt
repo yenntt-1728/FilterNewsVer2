@@ -10,15 +10,16 @@ import com.example.filternewsver2.ui.fragment.favourite.FavouriteFragment
 import com.example.filternewsver2.ui.fragment.news.NewsFragment
 import com.example.filternewsver2.ui.fragment.save.SaveFragment
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import dagger.hilt.android.AndroidEntryPoint
 
-class   MainActivity : AppCompatActivity(), MainListener {
-    private lateinit var mainViewModel: MainViewModel
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+    private val  mainViewModel: MainViewModel by viewModels()
     private lateinit var mainBinding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mainViewModel = MainViewModel()
         mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainBinding.tvTitle.text = resources.getString(R.string.news_title)
         mainBinding.bottomNavigationMain.setOnNavigationItemSelectedListener {
@@ -28,10 +29,6 @@ class   MainActivity : AppCompatActivity(), MainListener {
                 else -> setCurrentFragmentAndTitle(FavouriteFragment.favouriteInstance, FavouriteFragment.TAG)
             }
         }
-    }
-
-    override fun showBottomNavigation() {
-        TODO("Not yet implemented")
     }
 
     private fun setCurrentFragmentAndTitle(fragment: Fragment, tag : String?) : Boolean{

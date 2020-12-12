@@ -12,9 +12,11 @@ import com.example.filternewsver2.R
 import com.example.filternewsver2.databinding.FragmentNewsBinding
 import com.example.filternewsver2.ui.adapter.NewsAdapter
 import com.example.filternewsver2.ui.model.News
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NewsFragment : Fragment() {
-    private lateinit var newsViewModel : NewsViewModel
+    private val newsViewModel : NewsViewModel by viewModels()
     private val newAdapter by lazy {
         NewsAdapter<News>(layoutInflater, R.layout.item_news).apply {
 
@@ -31,10 +33,6 @@ class NewsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        context?.apply {
-            val newsRepository = NewsRepository(this)
-            newsViewModel = NewsViewModel(newsRepository)
-        }
         val newBinding : FragmentNewsBinding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_news,
             null, false)
         newBinding.adapter = newAdapter
